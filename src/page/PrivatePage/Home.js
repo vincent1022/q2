@@ -11,10 +11,11 @@ const Home = () => {
   return (
     <div className="login-page">
       <div className="header">
-        <div onClick={goHome}>首頁</div>
-        <div onClick={goNews}>最新消息</div>
+        <div>LOGO</div>
+        <div onClick={goHome} className="home-button">首頁</div>
+        <div onClick={goNews} className="news-button">最新消息</div>
       </div>
-      目前所在Home位置
+      <div>目前所在Home位置</div>
     </div>
   )
 }

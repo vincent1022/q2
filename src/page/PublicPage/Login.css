@@ -16,11 +16,14 @@
   border-radius: 2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.form-block {
+  display: contents;
+}
 .login-title {
   font-size: 30px;
 }
 .account, .password {
-  width: 50%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 5px;
 }
@@ -31,4 +34,19 @@
 }
 .login-button {
   margin-top: 5px;
+}
+
+.home-button, .news-button {
+  cursor: pointer;
+}
+.error {
+  color: red;
+}
+.success {
+  color: green;
+  margin-top: 15px;
+}
+.fail {
+  color: red;
+  margin-top: 15px;
 }
