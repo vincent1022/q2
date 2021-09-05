@@ -10,8 +10,11 @@ const Register = () => {
   const [isMessage, setIsMessage] = useState('')
   const history = useHistory()
   useEffect(() => {
-    confirmPwdChecking();
-  }, [isCurrentPassword])
+    confirmPwdChecking()
+    if (isMessage.success === true) {
+      setTimeout(function(){ history.push("/login");alert('註冊成功，請立即登入') }, 500)
+    }
+  }, [isCurrentPassword,isMessage])
   const confirmPwdChecking = () => {
     if(isAccount !== '') {
       if (isPassword !== isCurrentPassword) {
@@ -28,13 +31,11 @@ const Register = () => {
   const handleSubmit = () => {
     if(isAccount !== '' && isPassword !== '' && isCurrentPassword !== '') {
       fetchAPI()
-      setIsMessage('註冊成功')
-      setTimeout(function(){ history.push("/login");alert('註冊成功，請立即登入') }, 500)
-    }else {
-      setIsMessage('註冊失敗，請再輸入一次')
+      // setIsMessage('註冊成功')
+      // setTimeout(function(){ history.push("/login");alert('註冊成功，請立即登入') }, 500)
     }
   }
-
+  console.log(2222,isMessage)
   const fetchAPI = () => {
     const data = {'username': isAccount , 'password': isPassword}
     fetch('/api/register', {
@@ -45,7 +46,7 @@ const Register = () => {
       })
     }).then(res => res.json())
       .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response))
+      .then(response => setIsMessage(response))
   }
   return (
     <div className="login-page">
@@ -71,11 +72,11 @@ const Register = () => {
           <button type="button" id="submit-btn" onClick={handleSubmit}>
             註冊
           </button>
-          {isMessage === '註冊成功' && (
-            <div className="success">{isMessage}</div>
+          {isMessage.success === true && isMessage !== '' &&  (
+            <div className="success">{isMessage.message}</div>
           )}
-          {isMessage === '註冊失敗，請再輸入一次' && (
-            <div className="fail">{isMessage}</div>
+          {isMessage.success === false &&  (
+            <div className="fail">{isMessage.message}</div>
           )}
         </form>
       </div>
