@@ -8,6 +8,8 @@ const Register = () => {
   const [isCurrentPassword,setIsCurrentPassword] = useState('')
   const [isErrorPWD,setIsErrorPWD] = useState('')
   const [isMessage, setIsMessage] = useState('')
+  const [show, setShow] = useState(false)
+  const [showAgain, setShowAgain] = useState(false)
   const history = useHistory()
   useEffect(() => {
     confirmPwdChecking()
@@ -59,11 +61,13 @@ const Register = () => {
           </label>
           <label>
             密碼
-            <input type="password" className="password" placeholder="4-8字元；首尾必須是英文；中間必須是數字" required="required" onChange={(event) => setIsPassword(event.target.value)}/>
+            <input type={show ? "text" : "password"} className="password" placeholder="4-8字元；首尾必須是英文；中間必須是數字" required="required" onChange={(event) => setIsPassword(event.target.value)}/>
+            <button onClick={() => setShow(!show)}>不給你看</button>
           </label>
           <label>
             確認密碼
-            <input type="password" className="password" placeholder="4-8字元；首尾必須是英文；中間必須是數字" required="required" onChange={(event) => setIsCurrentPassword(event.target.value)}/>
+            <input type={showAgain ? "text" : "password"} className="password" placeholder="4-8字元；首尾必須是英文；中間必須是數字" required="required" onChange={(event) => setIsCurrentPassword(event.target.value)}/>
+            <button onClick={() => setShowAgain(!showAgain)}>不給你看</button>
           </label>
           {isErrorPWD !== '' && (
             <div className="error">{isErrorPWD}</div>

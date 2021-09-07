@@ -6,6 +6,7 @@ const Login = () => {
   const [account,setaccount] = useState('')
   const [password,setPassword] = useState('')
   const [isLogin,setIsLogin] = useState('')
+  const [show, setShow] = useState(false)
   const history = useHistory()
   useEffect(() => {
     if(isLogin.success === true && isLogin.token !== '') {
@@ -44,7 +45,8 @@ const Login = () => {
           </label>
           <label>
             密碼
-            <input type="password" className="password" required="required" onChange={(event) => setPassword(event.target.value)}/>
+            <input type={show ? "text" : "password"} className="password" required="required" onChange={(event) => setPassword(event.target.value)}/>
+            <button onClick={() => setShow(!show)}>不給你看</button>
           </label>
           <div className="register-button" onClick={goRegister}>註冊</div>
           <button type="button" id="submit-btn" onClick={handleSubmit}>
