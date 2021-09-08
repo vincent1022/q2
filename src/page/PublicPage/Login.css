@@ -22,7 +22,8 @@
 .login-title {
   font-size: 30px;
 }
-.account, .password {
+.account,
+.password {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -36,7 +37,8 @@
   margin-top: 5px;
 }
 
-.home-button, .news-button {
+.home-button,
+.news-button {
   cursor: pointer;
 }
 .error {

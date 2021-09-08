@@ -1,12 +1,8 @@
-import React from 'react'
-import './Login.css'
+import React from "react";
+import "./Login.css";
 
 const NotFound = () => {
-  return (
-    <div className="login-page">
-      找不到頁面
-    </div>
-  )
-}
+  return <div className="login-page">找不到頁面</div>;
+};
 
-export default NotFound
+export default NotFound;

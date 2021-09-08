@@ -1,7 +1,7 @@
 import Login from "../page/PublicPage/Login";
 import Register from "../page/PublicPage/Register";
-import Home from "../page/PrivatePage/Home"
-import News from "../page/PrivatePage/News"
+import Home from "../page/PrivatePage/Home";
+import News from "../page/PrivatePage/News";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NotFound from "../page/PublicPage/NotFound";
