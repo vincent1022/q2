@@ -46,7 +46,7 @@ const Login = () => {
           <label>
             密碼
             <input type={show ? "text" : "password"} className="password" required="required" onChange={(event) => setPassword(event.target.value)}/>
-            <button onClick={() => setShow(!show)}>不給你看</button>
+            <div className="show-password" onClick={() => setShow(!show)}>不給你看</div>
           </label>
           <div className="register-button" onClick={goRegister}>註冊</div>
           <button type="button" id="submit-btn" onClick={handleSubmit}>
