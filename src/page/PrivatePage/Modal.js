@@ -2,7 +2,6 @@ import { useEffect,useState } from "react";
 import './Home.css'
 
 const Modal = props => {
-  console.log(9999,props)
   const [name, setName] = useState('')
   const handleSubmit = () => {
     if (name !== "" ) {

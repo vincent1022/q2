@@ -32,7 +32,6 @@ const Home = () => {
       .catch((error) => console.error("Error:", error))
       .then((response) => setUserMessage(response.data));
   };
-  console.log(4444,visible)
   return (
     <div className="home-page">
       <div className="header">
