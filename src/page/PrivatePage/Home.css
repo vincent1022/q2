@@ -1,0 +1,88 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px 15px 25px;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+.logo {
+  font-size: 25px;
+  cursor: pointer;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.title-group {
+  display: flex;
+}
+.function-group {
+  display: flex;
+  align-items: center;
+}
+.burger {
+  font-size: 26px;
+  cursor: pointer;
+}
+.sidebar {
+  float: left;
+  border-right: 1px solid;
+  height: calc(100vh - 81px);
+  width: 10%;
+}
+.content {
+  padding-top: 15px;
+  padding-left: 12%;
+}
+.ring {
+  margin-right: 15px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.avatar {
+  margin-right: 10px;
+  cursor: pointer;
+  background: beige;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.account-name {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.back-login {
+  cursor: pointer;
+  width: 40px;
+  height: 30px;
+}
+.personal-management {
+  border-bottom: 1px solid;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.member-management {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.block {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: darkgrey;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+.block-name {
+  text-align: center;
+}
+.name {
+  width: 52%;
+}
+
+
+

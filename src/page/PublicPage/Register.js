@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+import Login from "./Login";
 
 const Register = () => {
   const [isAccount, setIsAccount] = useState("");
+  const [isName, setIsName] = useState("")
   const [isPassword, setIsPassword] = useState("");
   const [isCurrentPassword, setIsCurrentPassword] = useState("");
   const [isErrorPWD, setIsErrorPWD] = useState("");
@@ -23,7 +25,7 @@ const Register = () => {
   const confirmPwdChecking = () => {
     if (isAccount !== "") {
       if (isPassword !== isCurrentPassword) {
-        setIsErrorPWD("請輸入相同密碼");
+        setIsErrorPWD("與密碼不同");
       } else {
         setIsErrorPWD("");
       }
@@ -40,10 +42,9 @@ const Register = () => {
       // setTimeout(function(){ history.push("/login");alert('註冊成功，請立即登入') }, 500)
     }
   };
-  console.log(2222, isMessage);
   const fetchAPI = () => {
     const data = { username: isAccount, password: isPassword };
-    fetch("/api/register", {
+    fetch("https://l8-upgrade-apis.vercel.app/api/register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
@@ -70,6 +71,15 @@ const Register = () => {
             />
           </label>
           <label>
+            使用者名稱
+            <input
+              type="text"
+              className="account"
+              placeholder="可選，對其他用戶顯示的名稱"
+              onChange={(event) => setIsName(event.target.value)}
+            />
+          </label>
+          <label>
             密碼
             <input
               type={show ? "text" : "password"}
@@ -78,7 +88,7 @@ const Register = () => {
               required="required"
               onChange={(event) => setIsPassword(event.target.value)}
             />
-            <div onClick={() => setShow(!show)}>不給你看</div>
+            <div onClick={() => setShow(!show)}  className="show-password">不給你看</div>
           </label>
           <label>
             確認密碼

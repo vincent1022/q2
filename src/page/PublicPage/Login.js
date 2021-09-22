@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+import Home from "../PrivatePage/Home";
 
 const Login = () => {
   const [account, setaccount] = useState("");
@@ -12,6 +13,7 @@ const Login = () => {
     if (isLogin.success === true && isLogin.token !== "") {
       history.push("/home");
       alert("登入成功");
+      sessionStorage.setItem("token", isLogin.token)
     }
   }, [isLogin]);
   const goRegister = () => {
@@ -24,7 +26,7 @@ const Login = () => {
   };
   const fetchAPI = () => {
     const data = { username: account, password: password };
-    fetch("/api/login", {
+    fetch("https://l8-upgrade-apis.vercel.app/api/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
@@ -68,7 +70,7 @@ const Login = () => {
             登入
           </button>
           {isLogin.success === false && (
-            <div className="fail">登入失敗，請再輸入一次</div>
+            <div className="fail">{isLogin.message}</div>
           )}
         </form>
       </div>
